@@ -1,0 +1,32 @@
+{
+  "info": {
+    "version": "v1.0",
+    "license": {
+      "name": "Apache 2.0"
+    },
+    "title": ""
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "succeed to register a new user"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://example.com"
+    }
+  ],
+  "openapi": "3.0.0"
+}
