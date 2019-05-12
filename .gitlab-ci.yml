@@ -1,23 +1,8 @@
 stages:
   - test
 
-test:2.6:
-  image: python:2.6
-  stage: test
-  script:
-    - python -m unittest discover -s tests -p "test_*.py"
 test:2.7:
   image: python:2.7
-  stage: test
-  script:
-    - python -m unittest discover -s tests -p "test_*.py"
-test:3.0:
-  image: python:3.0
-  stage: test
-  script:
-    - python -m unittest discover -s tests -p "test_*.py"
-test:3.1:
-  image: python:3.1
   stage: test
   script:
     - python -m unittest discover -s tests -p "test_*.py"
@@ -36,16 +21,13 @@ test:3.4:
   stage: test
   script:
     - python -m unittest discover -s tests -p "test_*.py"
-test:3.5:
-  image: python 3.5
-  stage: test
-  script:
-    - python -m unittest discover -s tests -p "test_*.py"
+#test:3.5:
+#  image: python 3.5
+#  stage: test
+#  script:
+#    - python -m unittest discover -s tests -p "test_*.py"
 test:3.6:
   image: python:3.6
   stage: test
   script:
     - python -m unittest discover -s tests -p "test_*.py"
-
-
-
