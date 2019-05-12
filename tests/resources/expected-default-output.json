@@ -17,7 +17,7 @@
                 "schema": {}
               }
             },
-            "description": "succeed to register a new user"
+            "description": "succeed to return all users info"
           }
         }
       }
