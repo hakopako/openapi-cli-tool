@@ -1,3 +1,4 @@
+import os
 import unittest
 import sys
 import json
@@ -76,8 +77,8 @@ class TestSample(unittest.TestCase):
         original_sysin = sys.stdin
         for key, value in self.__data_provider().items():
             sys.stdin = StringIO(value['input'])
-            acutual = scaffold()
+            actual = scaffold()
             expected_str = read_file(value['expected'])
             expected = json.loads(expected_str)
-            self.assertEqual(acutual, expected, key)
+            self.assertEqual(actual, expected, key)
         sys.stdin = original_sysin
