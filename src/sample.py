@@ -42,7 +42,6 @@ def scaffold():
             'description': path_desc,
             'responses': {}
         }
-        print(len(data['paths'][path_name][path_method]['responses']))
 
         while len(data['paths'][path_name][path_method]['responses']) == 0 or \
                 data_input('Add more response for %s %s ? Y/n [n]: ' % (path_method, path_name), 'n') == 'Y':
