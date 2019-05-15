@@ -1,5 +1,5 @@
 # openapi-cli-tool
-OpenAPI (Swagger 3.x) CLI Tool. 
+OpenAPI (Swagger 3.x) CLI Tool.
 
 
 # Installation
@@ -14,11 +14,30 @@ Then `$ openapi-cli-tool` command is installed in your environment.
 
 # Tools
 
-- [ ] Viewer
-- [ ] Discover
-- [x] Scaffold 
+- [ ] List
+- [ ] Search
+- [ ] Find
+- [x] Scaffold
 
-## scaffold
+## List
+
+```bash
+$ openapi-cli-tool list [spec-path]
+```
+
+## Search
+
+```bash
+$ openapi-cli-tool list [keyword] [spec-path]
+```
+
+## Find
+
+```bash
+$ openapi-cli-tool find [-m method] [-p path] [spec-path]
+```
+
+## Scaffold
 
 ```bash
 $ openapi-cli-tool scaffold
@@ -26,4 +45,3 @@ $ openapi-cli-tool scaffold
 
 Interactively input information of your api endpoint.  
 Then template OpenAPI Specification is generated on your prompt.
-
