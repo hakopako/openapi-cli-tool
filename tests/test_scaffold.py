@@ -7,7 +7,7 @@ try:
     from StringIO import StringIO
 except ImportError:
     from io import StringIO
-from src.sample import scaffold
+from src.scaffold import scaffold
 
 
 def read_file(file_path):
