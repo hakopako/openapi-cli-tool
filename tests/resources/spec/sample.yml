@@ -1,0 +1,81 @@
+openapi: '3.0.0'
+
+info:
+  title: 'requestBody'
+  description: 'https://swagger.io/docs/specification/describing-request-body/'
+  version: 1.0.0
+
+servers:
+- url: 'http://localhost/'
+  description: 'Test server'
+
+paths:
+  /pets:
+    post:
+      summary: Add a new pet
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PetForm'
+          text/plain:
+            schema:
+              type: string
+      responses:
+        '201':
+          description: Created
+
+  /avatar:
+    put:
+      summary: Upload an avatar
+      requestBody:
+        content:
+          image/*:    # Can be image/png, image/svg, image/gif, etc.
+            schema:
+              type: string
+              format: binary
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                filename:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        '201':
+          description: Updated
+
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        name:          # <!--- form field name
+          type: string
+        fav_number:    # <!--- form field name
+          type: integer
+      required:
+        - name
+        - fav_number
+      additionalProperties: false
+    PetForm:
+      type: object
+      properties:
+        name:          # <!--- form field name
+          type: string
+        fav_number:    # <!--- form field name
+          type: string
+      required:
+        - name
+        - fav_number
+      additionalProperties: false
