@@ -15,7 +15,7 @@ def data_input(message, default):
         return input(message) or default
 
 
-def __export(export_data):
+def _export(export_data):
     result = json.dumps(export_data, indent=2, ensure_ascii=False)
     print(result)
 
@@ -56,5 +56,5 @@ def scaffold():
                     response_content_type: {"schema": {}}
                 }
             }
-    __export(data)
+    _export(data)
     return data

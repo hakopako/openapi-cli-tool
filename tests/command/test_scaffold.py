@@ -7,7 +7,7 @@ try:
     from StringIO import StringIO
 except ImportError:
     from io import StringIO
-from src.scaffold import scaffold
+from src.command.scaffold import scaffold
 
 
 def read_file(file_path):
@@ -17,12 +17,9 @@ def read_file(file_path):
     return content
 
 
-class TestSample(unittest.TestCase):
+class TestScaffold(unittest.TestCase):
 
-    def test_sample(self):
-        self.assertEqual('foo'.upper(), 'FOO')
-
-    def __data_provider(self):
+    def _data_provider(self):
         return {
             'default input': {
                 'input':
@@ -75,7 +72,7 @@ class TestSample(unittest.TestCase):
 
     def test_scaffold(self):
         original_sysin = sys.stdin
-        for key, value in self.__data_provider().items():
+        for key, value in self._data_provider().items():
             sys.stdin = StringIO(value['input'])
             actual = scaffold()
             expected_str = read_file(value['expected'])
