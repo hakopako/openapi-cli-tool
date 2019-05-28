@@ -1,10 +1,16 @@
 # openapi-cli-tool
-OpenAPI (Swagger 3.x) CLI Tool.
+OpenAPI (Swagger 3.x) CLI Tool.  
+
+- Supports multi file extension (json|yaml|yml).
+- List up defined APIs.
+- Display a API specification which is resolved `$ref`.
+- OAS interactive scaffold.  
 
 
 # Installation
 
-Run the install command on your machine:
+Execute Python installation command on your machine.  
+Supports Python 2.7, 3.4 <=.
 
 ```bash
 $ python setup.py install
@@ -12,7 +18,7 @@ $ python setup.py install
 
 Then `openapi-cli-tool` command is installed.
 
-# Commands
+# Usage
 
 ```
 $ openapi-cli-tool -h
@@ -30,7 +36,7 @@ Options:
 
 ## List
 
-Find routes from specification file/directory regardless of json or yml.
+List up APIs from specification file/directory regardless of file extension (json|yaml|yml).
 
 ```bash
 $ openapi-cli-tool list [spec-path]
@@ -38,9 +44,9 @@ $ openapi-cli-tool list [spec-path]
 Method    Path       File
 --------  ---------  ------------------------------------------
 PUT       /avatar    ./tests/resources/spec/sample.yml
-GET       /follwers  ./tests/resources/spec/folder1/sample2.yml
-POST      /follwers  ./tests/resources/spec/folder1/sample2.yml
-PUT       /follwers  ./tests/resources/spec/folder1/sample2.yml
+GET       /follwers  ./tests/resources/spec/folder1/sample2.yaml
+POST      /follwers  ./tests/resources/spec/folder1/sample2.yaml
+PUT       /follwers  ./tests/resources/spec/folder1/sample2.yaml
 POST      /pets      ./tests/resources/spec/sample.yml
 GET       /posts     ./tests/resources/spec/folder1/sample.json
 POST      /posts     ./tests/resources/spec/folder1/sample.json
@@ -51,7 +57,7 @@ POST      /users     ./tests/resources/spec/folder1/sample.json
 
 ## Resolve
 
-Display a route specification which is resolved reference object in json format.
+Display an API specification which is resolved multi-file API specification via $ref pointers.  
 
 ```bash
 $ openapi-cli-tool resolve [method] [path] [spec-path]
@@ -60,7 +66,7 @@ $ openapi-cli-tool resolve [method] [path] [spec-path]
 
 ## Scaffold
 
-Interactively input information of your api endpoint.  
+Interactively input information of your API.  
 A simple OpenAPI Specification is generated on your prompt.
 
 ```bash

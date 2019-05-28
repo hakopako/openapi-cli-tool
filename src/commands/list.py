@@ -16,7 +16,7 @@ def path_list(path):
     if os.path.isfile(path):
         files = [path]
     else:
-        files = [y for x in os.walk(path) for y in glob(os.path.join(x[0], '*.yml')) + glob(os.path.join(x[0], '*.json'))]
+        files = [y for x in os.walk(path) for y in glob(os.path.join(x[0], '*.yml')) + glob(os.path.join(x[0], '*.yaml')) + glob(os.path.join(x[0], '*.json'))]
     for file in files:
         _, file_extension = os.path.splitext(file)
         try:

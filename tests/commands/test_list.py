@@ -14,9 +14,9 @@ class TestList(unittest.TestCase):
                 'expected': [
                     ['PUT', '/avatar', './tests/resources/spec/sample.yml'],
                     ['POST', '/cats', './tests/resources/spec/ref_sample.yml'],
-                    ['GET', '/follwers', './tests/resources/spec/folder1/sample2.yml'],
-                    ['POST', '/follwers', './tests/resources/spec/folder1/sample2.yml'],
-                    ['PUT', '/follwers', './tests/resources/spec/folder1/sample2.yml'],
+                    ['GET', '/follwers', './tests/resources/spec/folder1/sample2.yaml'],
+                    ['POST', '/follwers', './tests/resources/spec/folder1/sample2.yaml'],
+                    ['PUT', '/follwers', './tests/resources/spec/folder1/sample2.yaml'],
                     ['POST', '/pets', './tests/resources/spec/sample.yml'],
                     ['GET', '/posts', './tests/resources/spec/folder1/sample.json'],
                     ['POST', '/posts', './tests/resources/spec/folder1/sample.json'],
