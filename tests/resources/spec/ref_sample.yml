@@ -1,0 +1,45 @@
+openapi: '3.0.0'
+
+info:
+  title: 'requestBody'
+  description: 'https://swagger.io/docs/specification/describing-request-body/'
+  version: 1.0.0
+
+servers:
+- url: 'http://localhost/'
+  description: 'Test server'
+
+paths:
+  /cats:
+    post:
+      summary: Add a new cat
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './sample.yml#/components/schemas/Pet'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: './sample.yml#/components/schemas/PetForm'
+          text/plain:
+            schema:
+              type: string
+      responses:
+        '201':
+          description: Created
+
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        name:          # <!--- form field name
+          type: string
+        fav_number:    # <!--- form field name
+          type: integer
+      additionalProperties: false

@@ -1,4 +1,5 @@
-import json
+from src.utils.export import export_json
+
 
 data = {
     'openapi': '3.0.0',
@@ -15,12 +16,7 @@ def data_input(message, default):
         return input(message) or default
 
 
-def _export(export_data):
-    result = json.dumps(export_data, indent=2, ensure_ascii=False)
-    print(result)
-
-
-def scaffold():
+def run_scaffold():
     data['info']['title'] = data_input('Please enter title [""]: ', '')
     data['info']['version'] = data_input('Please enter version [v1.0]: ', 'v1.0')
     data['info']['license']['name'] = data_input('Please enter license [Apache 2.0]: ', 'Apache 2.0')
@@ -56,5 +52,9 @@ def scaffold():
                     response_content_type: {"schema": {}}
                 }
             }
-    _export(data)
     return data
+
+
+def scaffold():
+    result = run_scaffold()
+    export_json(result)

@@ -8,6 +8,7 @@ test:2.7:
     - pip install -r requirements.txt
     - python -m unittest discover -s tests -p "test_*.py"
     - python setup.py install
+    - openapi-cli-tool list ./tests/resources/spec
 test:3.4:
   image: python:3.4
   stage: test
@@ -15,6 +16,7 @@ test:3.4:
     - pip install -r requirements.txt
     - python -m unittest discover -s tests -p "test_*.py"
     - python setup.py install
+    - openapi-cli-tool list ./tests/resources/spec
 # test:3.5:
 #   image: python 3.5
 #   stage: test
@@ -22,6 +24,7 @@ test:3.4:
 #     - pip install -r requirements.txt
 #     - python -m unittest discover -s tests -p "test_*.py"
 #     - python setup.py install
+#     - openapi-cli-tool list .
 test:3.6:
   image: python:3.6
   stage: test
@@ -29,3 +32,4 @@ test:3.6:
     - pip install -r requirements.txt
     - python -m unittest discover -s tests -p "test_*.py"
     - python setup.py install
+    - openapi-cli-tool list ./tests/resources/spec
