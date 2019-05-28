@@ -1,5 +1,5 @@
 import unittest
-from src.command.list import path_list
+from src.commands.list import path_list
 
 class TestList(unittest.TestCase):
 
@@ -13,6 +13,7 @@ class TestList(unittest.TestCase):
                 'input': './tests/resources/spec',
                 'expected': [
                     ['PUT', '/avatar', './tests/resources/spec/sample.yml'],
+                    ['POST', '/cats', './tests/resources/spec/ref_sample.yml'],
                     ['GET', '/follwers', './tests/resources/spec/folder1/sample2.yml'],
                     ['POST', '/follwers', './tests/resources/spec/folder1/sample2.yml'],
                     ['PUT', '/follwers', './tests/resources/spec/folder1/sample2.yml'],

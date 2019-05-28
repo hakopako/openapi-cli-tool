@@ -7,7 +7,7 @@ try:
     from StringIO import StringIO
 except ImportError:
     from io import StringIO
-from src.command.scaffold import scaffold
+from src.commands.scaffold import run_scaffold
 
 
 def read_file(file_path):
@@ -74,7 +74,7 @@ class TestScaffold(unittest.TestCase):
         original_sysin = sys.stdin
         for key, value in self._data_provider().items():
             sys.stdin = StringIO(value['input'])
-            actual = scaffold()
+            actual = run_scaffold()
             expected_str = read_file(value['expected'])
             expected = json.loads(expected_str)
             self.assertEqual(actual, expected, key)

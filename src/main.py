@@ -2,30 +2,27 @@
 
 Usage:
   openapi-cli-tool list <spec-path>
-  openapi-cli-tool search <keyword> <spec-path>
-  openapi-cli-tool find <method> <path> <spec-path>
+  openapi-cli-tool resolve <method> <path> <spec-path>
   openapi-cli-tool scaffold
 
 Options:
-  -h --help     Show this screen.
+  -h --help     Show help.
   --version     Show version.
-  --speed=<kn>  Speed in knots [default: 10].
-  --moored      Moored (anchored) mine.
-  --drifting    Drifting mine.
 
 """
 from docopt import docopt
-from command.scaffold import scaffold
-from command.list import path_list
+from src.commands.scaffold import scaffold
+from src.commands.list import list
+from src.commands.resolve import resolve
 
 def main():
     arguments = docopt(__doc__, version='OpenAPI CLI Tool 0.1')
     if arguments['scaffold']:
         scaffold()
     elif arguments['list']:
-        path_list(arguments['<spec-path>'])
-    elif arguments['search']:
-        pass
+        list(arguments['<spec-path>'])
+    elif arguments['resolve']:
+        resolve(arguments['<method>'], arguments['<path>'], arguments['<spec-path>'])
 
 if __name__ == '__main__':
     main()
