@@ -1,3 +1,5 @@
+![openapi-cli-tool](https://raw.githubusercontent.com/hakopako/openapi-cli-tool/master/doc/logo.png)
+
 # openapi-cli-tool
 OpenAPI (Swagger 3.x) CLI Tool.  
 
