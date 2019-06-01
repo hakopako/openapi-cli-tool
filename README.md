@@ -25,17 +25,16 @@ Then `openapi-cli-tool` command is installed.
 # Usage
 
 ```
-$ openapi-cli-tool -h
-OpenAPI CLI Tool
-
-Usage:
-  openapi-cli-tool list <spec-path>
-  openapi-cli-tool resolve <method> <path> <spec-path>
-  openapi-cli-tool scaffold
+$ openapi-cli-tool --help
+Usage: openapi-cli-tool [OPTIONS] COMMAND [ARGS]...
 
 Options:
-  -h --help     Show help.
-  --version     Show version.
+  --help  Show this message and exit.
+
+Commands:
+  list      List up APIs in a specific file or directory.
+  resolve   Display `$ref` resolved API specification.
+  scaffold  Interactively create a simple OpenAPI Specification.
 ```
 
 ## List
