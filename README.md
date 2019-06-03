@@ -32,9 +32,33 @@ Options:
   --help  Show this message and exit.
 
 Commands:
+  bundle    Bundle multi-file into one.
   list      List up APIs in a specific file or directory.
   resolve   Display `$ref` resolved API specification.
   scaffold  Interactively create a simple OpenAPI Specification.
+```
+
+## Bundle
+
+Bundle multi-file specifications into one, regardless of file extension (json|yaml|yml).
+
+```
+$ openapi-cli-tool bundle --help
+Usage: openapi-cli-tool bundle [OPTIONS] FILE_PATH
+
+  Bundle multi-file into one.
+
+Options:
+  -t, --title TEXT    [default: API]
+  -v, --version TEXT  [default: v1.0]
+  -l, --license TEXT  [default: Apache 2.0]
+  -s, --server TEXT   [default: http://localhost]
+  --help              Show this message and exit.
+```
+
+example:
+```
+$ openapi-cli-tool bundle FILE_PAH > ./specification.json
 ```
 
 ## List
