@@ -15,6 +15,7 @@ def _find_info_from_file(filename):
 
 def run_bundle(spec_path, filename=None):
     paths = path_list(spec_path)
+    data = {}
     if len(paths) > 0 and filename is None:
         data = _find_info_from_file(paths[0][2])
     elif filename is not None:
