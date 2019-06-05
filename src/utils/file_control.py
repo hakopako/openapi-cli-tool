@@ -1,3 +1,4 @@
+import os
 import json
 import yaml
 
@@ -14,3 +15,10 @@ def load_content(content, file_extension):
         return json.loads(content) if file_extension == 'json' else yaml.safe_load(content)
     except:
         return ''
+
+
+def get_spec_from_file(file_path):
+    _, file_extension = os.path.splitext(file_path)
+    content = read_file(file_path)
+    spec = load_content(content, file_path)
+    return spec
