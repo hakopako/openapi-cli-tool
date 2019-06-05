@@ -2,7 +2,7 @@ import click
 from src.commands.scaffold import scaffold
 from src.commands.list import list
 from src.commands.resolve import resolve
-from src.commands.bundle import bundle, update_info_block
+from src.commands.bundle import bundle
 
 
 @click.group()
@@ -25,14 +25,10 @@ def cmd_resolve(method, path, file_path):
 
 
 @main.command('bundle', help='Bundle multi-file into one.')
-@click.option('-t', '--title', 'title', default='API', show_default=True)
-@click.option('-v', '--version', 'version', default='v1.0', show_default=True)
-@click.option('-l', '--license', 'license', default='Apache 2.0', show_default=True)
-@click.option('-s', '--server', 'server', default='http://localhost', show_default=True)
+@click.option('-f', '--file', 'file', help='load common objects from file.')
 @click.argument('file_path')
-def cmd_bundle(title, version, license, server, file_path):
-    update_info_block(title, version, license, server)
-    bundle(file_path)
+def cmd_bundle(file, file_path):
+    bundle(file_path, file)
 
 
 @main.command('scaffold', help='Interactively create a simple OpenAPI Specification.')

@@ -49,11 +49,8 @@ Usage: openapi-cli-tool bundle [OPTIONS] FILE_PATH
   Bundle multi-file into one.
 
 Options:
-  -t, --title TEXT    [default: API]
-  -v, --version TEXT  [default: v1.0]
-  -l, --license TEXT  [default: Apache 2.0]
-  -s, --server TEXT   [default: http://localhost]
-  --help              Show this message and exit.
+  -f, --file TEXT  load common objects from file.
+  --help           Show this message and exit.
 ```
 
 example:
