@@ -1,5 +1,5 @@
 import unittest
-from src.commands.list import path_list
+from src.commands.list import get_list
 
 class TestList(unittest.TestCase):
 
@@ -35,5 +35,5 @@ class TestList(unittest.TestCase):
 
     def test_list(self):
         for key, value in self._data_provider().items ():
-            actual = path_list(value['input'])
+            actual = get_list(value['input'])
             self.assertEqual(actual, value['expected'], key)

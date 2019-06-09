@@ -6,8 +6,8 @@ info:
   version: 1.0.0
 
 servers:
-- url: 'http://localhost/'
-  description: 'Test server'
+  - url: 'http://localhost/'
+    description: 'Test server'
 
 paths:
   /cats:

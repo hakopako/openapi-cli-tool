@@ -3,22 +3,19 @@ import json
 import yaml
 
 
-def read_file(file_path):
-    r = open(file_path, 'r')
-    content = r.read()
-    r.close()
-    return content
-
-
-def load_content(content, file_extension):
+def load_dict_from_file(file_path):
     try:
-        return json.loads(content) if file_extension == 'json' else yaml.safe_load(content)
-    except:
-        return ''
-
-
-def get_spec_from_file(file_path):
-    _, file_extension = os.path.splitext(file_path)
-    content = read_file(file_path)
-    spec = load_content(content, file_path)
-    return spec
+        r = open(file_path, 'r')
+        content = r.read()
+        r.close()
+        _, file_extension = os.path.splitext(file_path)
+        if not os.path.exists(file_path):
+            raise Exception('Faild not found.')
+        if file_extension == '.json':
+            return json.loads(content)
+        elif file_extension in ['.yaml', '.yml']:
+            return yaml.safe_load(content)
+        else:
+            raise Exception('Unknown extension.')
+    except Exception as e:
+        raise Exception('File Read Error (' + file_path + '): ' + str(e))
