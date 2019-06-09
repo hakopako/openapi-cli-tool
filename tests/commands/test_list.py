@@ -36,4 +36,4 @@ class TestList(unittest.TestCase):
     def test_list(self):
         for key, value in self._data_provider().items ():
             actual = get_list(value['input'])
-            self.assertEqual(actual, value['expected'], key)
+            self.assertEqual(actual.to_list(), value['expected'], key)
