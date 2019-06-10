@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='openapi-cli-tool',
-    description="openapi cli tool - scaffold",
+    description="openapi cli tool",
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     version='0.1.1',
