@@ -10,3 +10,4 @@ script:
   - python -m unittest discover -s tests -p "test_*.py"
   - python setup.py install
   - openapi-cli-tool list ./tests/resources/spec
+  - openapi-cli-tool bundle -t yaml ./tests/resources/spec/folder1
