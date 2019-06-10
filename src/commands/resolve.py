@@ -16,4 +16,4 @@ def resolve(method, path, spec_path, type):
     elif type == 'yaml':
         export_yaml(specs)
     if len(specs) > 1:
-        print("\nWARNING: multiple specifications found for " + p[0] + ' ' + p[1])
+        print("\nWARNING: multiple specifications found for " + method + ' ' + path)
