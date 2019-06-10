@@ -8,7 +8,7 @@ setup(
     version='0.1.1',
     author="Ayaka Shimada",
     author_email='aya.a.shimada@gmail.com',
-    url='https;//web.hakopako.net',
+    url='https://github.com/hakopako/openapi-cli-tool',
     license='MIT',
     install_requires=open('requirements.txt').readlines(),
     packages=find_packages(exclude=["tests", "tests.*"]),
