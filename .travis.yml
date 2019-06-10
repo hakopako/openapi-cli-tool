@@ -11,6 +11,7 @@ script:
 - python setup.py install
 - openapi-cli-tool list ./tests/resources/spec
 - openapi-cli-tool bundle -t yaml ./tests/resources/spec/folder1
+- python setup.py sdist bdist_wheel
 deploy:
   provider: pypi
   user: hakopako
