@@ -1,6 +1,8 @@
 ![openapi-cli-tool](https://raw.githubusercontent.com/hakopako/openapi-cli-tool/master/doc/logo.png)
 
-[![Build Status](https://travis-ci.com/hakopako/openapi-cli-tool.svg?branch=master)](https://travis-ci.com/hakopako/openapi-cli-tool)
+
+[![Build Status](https://travis-ci.com/hakopako/openapi-cli-tool.svg?branch=master)](https://travis-ci.com/hakopako/openapi-cli-tool) <img src="https://img.shields.io/badge/version-v0.1-green.svg"> <img src="https://img.shields.io/badge/license-MIT-lightgray.svg">  
+<img src="https://img.shields.io/badge/python-2.7,3.4<=-blue.svg"> <img src="https://img.shields.io/badge/swagger-3.x-yellow.svg">
 
 # openapi-cli-tool
 OpenAPI (Swagger 3.x) CLI Tool.  
