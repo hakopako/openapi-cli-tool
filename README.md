@@ -9,7 +9,7 @@ OpenAPI (Swagger 3.x) CLI Tool.
 
 - Supports multi file extension (json|yaml|yml).
 - List up defined APIs.
-- Display a API specification which is resolved `$ref`.
+- Display an API specification which is resolved `$ref`.
 - Bundle multi-file into one.
 - OAS interactive scaffold.  
 
