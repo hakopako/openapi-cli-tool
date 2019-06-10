@@ -1,8 +1,6 @@
 language: python
 os:
 - linux
-# - osx
-# - windows
 python:
 - '2.7'
 - '3.4'
@@ -20,7 +18,7 @@ deploy:
   distributions: sdist bdist_wheel
   user: hakopako
   password:
-    secure: HVOWyH+/75hwhdVYl9fUdIp0nHEERrYWg2aGs02hT8qONDCvQcfvUDG54eg3jL4wq+1knPU5Pvb4vpht3nbibmZDJLz4B/fukZ+9H8CFKAvWKaOa2lEtPKLKTqdTlupRPSkyQIo4dtyemKI6r5ganFaNFc3T2UOY3IIfW8XfUzqldn9MzzQ9jJlqCrsnF24ArSlxkC0UofUkYclyA5U4GLPDJ01Rj6E2HPVrb6iajBiqL6+5beZAybumnIwlc32lFx5T8epy2bVl3qeFc2mJ8bEpD4CwO2BXn+UHvUEI7yz9DPi5fFK/QznLZShdpgY4JcT9E7YNXV+R/yaA2Mpma5HlB3GTCUFg9UuB6WHgM4Z9baGnnH0Ft10nxup3wGiKMtctsOOPjL5+aGqtrQJ63QIx+nfqY62iAtn6PTbYEZd3iZGSXiS0jcJaArAQ2ePNskl/59lv/EUDMSWOkg35Y9ZWJZJMZKW6WQcBwmAPUN6nUrHUgaacDrsIxnuMaHxQMF51oWvc+Znmxc3bRiAW+woScpncSgYfxbaeRKlzYFj0IBrFg0TVAcHmKYT1ib1ChmKXqrDpw2E1KUJvL0WDQ4fQ2iwZwejPS7zNUmnf6iKvU0LT2go+ct6T5gsakfT4CFCL6EJGRV1jJSCLIkgxTRvw56GsTmBbdSaLEsh9mBc=
+    secure: XHAZIK0o9WRfkZ3SIUrSStB6QOvSZFXccuYXD/GUEJrbtSlgxaaOQZWlpn1hr/e2ZtggEduZMsnHaF63A76XZBL5rA8wukK1sjIZ5+ERX9cPlmswTJdfFayf2QvfHlSYEuW479LVRy5ob2ZL/KvtNO5PQcOoqSGBfbOiukfMGPgn0kgpW27QKRZMnF45sMTwpCfSOpAwKTeRMtbiM7Pj7criqEw4v1NdTk/HljTTJNJUHGhs8xjFsvj5C07aIZTTJwAhnwsKomnYpV948n8zoQNyuyZVp+dmcXV8VIdWBGqRc6bA8zguKcc32CdwOnrMhMmXWIktM0TOf4afm44S47nLwZym5xcjug+w8j6sLhthu7z2U3/HbM18Zm+INFTdMZH4l5jCx9sG6k9TyoWgU04BdM6rrild+7PVL9108WPIjYXWsbsrD8BsF6TGUts0kOiaqoDAvLSv8lQmRIHnYyhoGvY9zpAj3xNdq6g7QlcP0Q7Pq39pXrcSZLKGM00d9RGCCWSl0JHhfIQSkJNAMcVbWTdOdNq/miRK/hdBcB2eHwGhYqzn1CSiYjIe1eBOOtQYkZbHWyvQS5seVRfbuZGbPzCzEjLFadCg4171ED4/qrS0uyGFs/g4e70e1Yu5FrFR9/FN7S+Hc1x68Gqe0xHN3FFNYOUyq/LaPg2cA6c=
+  skip_existing: true
   on:
     tags: true
-    python: '3.6'
