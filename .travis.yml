@@ -1,13 +1,24 @@
 language: python
+os:
+- linux
 python:
-  - "2.7"
-  - "3.4"
-  - "3.5"
-  - "3.6"
+- '2.7'
+- '3.4'
+- '3.5'
+- '3.6'
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - python -m unittest discover -s tests -p "test_*.py"
-  - python setup.py install
-  - openapi-cli-tool list ./tests/resources/spec
-  - openapi-cli-tool bundle -t yaml ./tests/resources/spec/folder1
+- python -m unittest discover -s tests -p "test_*.py"
+- python setup.py install
+- openapi-cli-tool list ./tests/resources/spec
+- openapi-cli-tool bundle -t yaml ./tests/resources/spec/folder1
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: hakopako
+  password:
+    secure: XHAZIK0o9WRfkZ3SIUrSStB6QOvSZFXccuYXD/GUEJrbtSlgxaaOQZWlpn1hr/e2ZtggEduZMsnHaF63A76XZBL5rA8wukK1sjIZ5+ERX9cPlmswTJdfFayf2QvfHlSYEuW479LVRy5ob2ZL/KvtNO5PQcOoqSGBfbOiukfMGPgn0kgpW27QKRZMnF45sMTwpCfSOpAwKTeRMtbiM7Pj7criqEw4v1NdTk/HljTTJNJUHGhs8xjFsvj5C07aIZTTJwAhnwsKomnYpV948n8zoQNyuyZVp+dmcXV8VIdWBGqRc6bA8zguKcc32CdwOnrMhMmXWIktM0TOf4afm44S47nLwZym5xcjug+w8j6sLhthu7z2U3/HbM18Zm+INFTdMZH4l5jCx9sG6k9TyoWgU04BdM6rrild+7PVL9108WPIjYXWsbsrD8BsF6TGUts0kOiaqoDAvLSv8lQmRIHnYyhoGvY9zpAj3xNdq6g7QlcP0Q7Pq39pXrcSZLKGM00d9RGCCWSl0JHhfIQSkJNAMcVbWTdOdNq/miRK/hdBcB2eHwGhYqzn1CSiYjIe1eBOOtQYkZbHWyvQS5seVRfbuZGbPzCzEjLFadCg4171ED4/qrS0uyGFs/g4e70e1Yu5FrFR9/FN7S+Hc1x68Gqe0xHN3FFNYOUyq/LaPg2cA6c=
+  skip_existing: true
+  on:
+    tags: true
