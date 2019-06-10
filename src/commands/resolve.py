@@ -1,6 +1,6 @@
 from src.commands.list import get_list
 from src.utils.resolver import resolver
-from src.utils.export import export_json
+from src.utils.export import export_json, export_yaml
 
 
 def run_resolve(method, path, spec_path):
@@ -9,9 +9,11 @@ def run_resolve(method, path, spec_path):
     return specs
 
 
-def resolve(method, path, spec_path):
+def resolve(method, path, spec_path, type):
     specs = run_resolve(method, path, spec_path)
-    for s in specs:
-        export_json(s)
+    if type == 'json':
+        export_json(specs)
+    elif type == 'yaml':
+        export_yaml(specs)
     if len(specs) > 1:
-        print("\nWARNING: multiple specifications found for " + p[0] + ' ' + p[1])
+        print("\nWARNING: multiple specifications found for " + method + ' ' + path)

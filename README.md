@@ -8,6 +8,7 @@ OpenAPI (Swagger 3.x) CLI Tool.
 - Supports multi file extension (json|yaml|yml).
 - List up defined APIs.
 - Display a API specification which is resolved `$ref`.
+- Bundle multi-file into one.
 - OAS interactive scaffold.  
 
 
@@ -49,7 +50,10 @@ Usage: openapi-cli-tool bundle [OPTIONS] FILE_PATH
   Bundle multi-file into one.
 
 Options:
-  -f, --file TEXT  load common objects from file.
+  -f, --file TEXT  Load common objects such as info and servers from a
+                   specific file. Default is a file which is the top of list
+                   command result.
+  -t, --type TEXT  Export data type. {json|yaml}  [default: json]
   --help           Show this message and exit.
 ```
 
@@ -83,8 +87,19 @@ POST      /users     ./tests/resources/spec/folder1/sample.json
 
 Display an API specification which is resolved multi-file API specification via $ref pointers.  
 
+```
+Usage: openapi-cli-tool resolve [OPTIONS] METHOD PATH FILE_PATH
+
+  Display `$ref` resolved API specification.
+
+Options:
+  -t, --type TEXT  Export data type. {json|yaml}  [default: json]
+  --help           Show this message and exit.
+```
+
+example:
 ```bash
-$ openapi-cli-tool resolve [method] [path] [spec-path]
+$ openapi-cli-tool resolve post /cats ./tests/resources/spec
 ```
 
 

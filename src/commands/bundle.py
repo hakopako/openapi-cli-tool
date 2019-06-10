@@ -1,6 +1,6 @@
 from src.commands.list import get_list
 from src.utils.resolver import resolver
-from src.utils.export import export_json
+from src.utils.export import export_json, export_yaml
 from src.utils.file_control import load_dict_from_file
 
 
@@ -32,6 +32,9 @@ def run_bundle(spec_path, filename=None):
     return data
 
 
-def bundle(spec_path, filename=None):
+def bundle(spec_path, type, filename=None):
     specs = run_bundle(spec_path, filename)
-    export_json(specs)
+    if type == 'json':
+        export_json(specs)
+    elif type == 'yaml':
+        export_yaml(specs)
