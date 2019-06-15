@@ -57,7 +57,7 @@ Options:
   -f, --file TEXT  Load common objects such as info and servers from a
                    specific file. Default is a file which is the top of list
                    command result.
-  -t, --type TEXT  Export data type. {json|yaml}  [default: json]
+  -t, --type TEXT  Export data type. {json|yaml|html}  [default: json]
   --help           Show this message and exit.
 ```
 

@@ -12,6 +12,7 @@ setup(
     license='MIT',
     install_requires=open('requirements.txt').readlines(),
     packages=find_packages(exclude=["tests", "tests.*"]),
+    package_data={'': ['*.html']},
     include_package_data=True,
     entry_points={
         'console_scripts': [
