@@ -2,7 +2,7 @@
 
 
 [![Build Status](https://travis-ci.com/hakopako/openapi-cli-tool.svg?branch=master)](https://travis-ci.com/hakopako/openapi-cli-tool)
- <img src="https://img.shields.io/badge/version-v0.1.2-green.svg">
+ <img src="https://img.shields.io/badge/version-v0.1.3beta-green.svg">
  <img src="https://img.shields.io/badge/license-MIT-lightgray.svg">  
 <img src="https://img.shields.io/badge/python-2.7,3.4<=-blue.svg"> <img src="https://img.shields.io/badge/swagger-3.x-yellow.svg">
 
@@ -63,8 +63,13 @@ Options:
 
 example:
 ```
-$ openapi-cli-tool bundle FILE_PAH > ./specification.json
+$ openapi-cli-tool bundle -t html FILE_PAH > ./specification.html
 ```
+
+In html file, unpkg of [swagger-ui](https://github.com/swagger-api/swagger-ui) is called.
+
+![bundle-html-img](https://raw.githubusercontent.com/hakopako/openapi-cli-tool/master/doc/bundle-html.png)
+
 
 ## List
 
