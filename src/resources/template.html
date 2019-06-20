@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>###TITLE###</title>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css">
+  <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+</head>
+<div id="swagger-ui"></div>
+
+<script>
+window.onload = function() {
+  const ui = SwaggerUIBundle({
+    spec: ###SPEC###,
+    dom_id: "#swagger-ui",
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIBundle.SwaggerUIStandalonePreset
+    ]
+  })
+  window.ui = ui
+}
+</script>
+</html>

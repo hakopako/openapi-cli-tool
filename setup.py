@@ -5,13 +5,14 @@ setup(
     description="openapi cli tool",
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    version='0.1.2',
+    version='0.1.3-beta',
     author="Ayaka Shimada",
     author_email='aya.a.shimada@gmail.com',
     url='https://github.com/hakopako/openapi-cli-tool',
     license='MIT',
     install_requires=open('requirements.txt').readlines(),
     packages=find_packages(exclude=["tests", "tests.*"]),
+    package_data={'': ['*.html']},
     include_package_data=True,
     entry_points={
         'console_scripts': [

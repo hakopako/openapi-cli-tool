@@ -3,6 +3,16 @@ import json
 import yaml
 
 
+def load_file(file_path):
+    try:
+        r = open(file_path, 'r')
+        content = r.read()
+        r.close()
+        return content
+    except:
+        return ''
+
+
 def load_dict_from_file(file_path):
     try:
         r = open(file_path, 'r')
