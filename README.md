@@ -63,10 +63,11 @@ Options:
 
 example:
 ```
-$ openapi-cli-tool bundle -t html FILE_PAH > ./specification.html
+$ openapi-cli-tool bundle -t html FILE_PATH > ./specification.html
 ```
 
-In html file, unpkg of [swagger-ui](https://github.com/swagger-api/swagger-ui) is called.
+In html file, unpkg of [swagger-ui](https://github.com/swagger-api/swagger-ui) is called. With browser, looks like this:  
+
 
 ![bundle-html-img](https://raw.githubusercontent.com/hakopako/openapi-cli-tool/master/doc/bundle-html.png)
 
