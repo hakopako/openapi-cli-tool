@@ -24,7 +24,7 @@ def main():
     pass
 
 
-@main.command('list', help='List up APIs in a specific file or directory.')
+@main.command('list', help='List up API paths in a file or directory.')
 @click.argument('file_path', type=click.Path(exists=True))
 def cmd_list(file_path):
     list(file_path)
@@ -39,7 +39,7 @@ def cmd_resolve(method, path, file_path, type):
     resolve(method, path, file_path, type)
 
 
-@main.command('bundle', help='Bundle multi-file into one.')
+@main.command('bundle', help='Bundle multiple files into one.')
 @click.option('-f', '--file', 'file', help='Load common objects such as info and servers from a specific file. Default is a file which is the top of list command result.')
 @click.option('-t', '--type', 'type', default='json', show_default=True, callback=validate_bundle_type, help='Export data type. {json|yaml|html}')
 @click.argument('file_path')

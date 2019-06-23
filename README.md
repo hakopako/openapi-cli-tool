@@ -9,17 +9,25 @@
 # openapi-cli-tool
 OpenAPI (Swagger 3.x) CLI Tool.  
 
-- Supports multi file extension (json|yaml|yml).
-- List up defined APIs.
-- Display an API specification which is resolved `$ref`.
-- Bundle multi-file into one.
-- OAS interactive scaffold.  
+- Supports multiple file extensions (json|yaml|yml).
+- Can list up defined API paths.
+- Display an API specification which is resolved (`$ref`).
+- Bundle multi-file into one (output to json|yaml|html).
+- OAS interactive scaffolding.  
 
+# Requirements
+
+Python 2.7, 3.4 <=.
 
 # Installation
 
-Execute Python installation command on your machine.  
-Supports Python 2.7, 3.4 <=.
+With pip:
+
+```bash
+$ pip install openapi-cli-tool
+```
+Manually:  
+Clone the repository and execute the Python installation command on your machine.  
 
 ```bash
 $ python setup.py install
@@ -37,8 +45,8 @@ Options:
   --help  Show this message and exit.
 
 Commands:
-  bundle    Bundle multi-file into one.
-  list      List up APIs in a specific file or directory.
+  bundle    Bundle multiple files into one.
+  list      List up API paths in a file or directory.
   resolve   Display `$ref` resolved API specification.
   scaffold  Interactively create a simple OpenAPI Specification.
 ```
@@ -51,7 +59,7 @@ Bundle multi-file specifications into one, regardless of file extension (json|ya
 $ openapi-cli-tool bundle --help
 Usage: openapi-cli-tool bundle [OPTIONS] FILE_PATH
 
-  Bundle multi-file into one.
+  Bundle multiple files into one.
 
 Options:
   -f, --file TEXT  Load common objects such as info and servers from a
@@ -66,7 +74,7 @@ example:
 $ openapi-cli-tool bundle -t html FILE_PATH > ./specification.html
 ```
 
-In html file, unpkg of [swagger-ui](https://github.com/swagger-api/swagger-ui) is called. With browser, looks like this:  
+In the html file, an unpkg version of [swagger-ui](https://github.com/swagger-api/swagger-ui) is embedded. Rendered screenshot below:  
 
 
 ![bundle-html-img](https://raw.githubusercontent.com/hakopako/openapi-cli-tool/master/doc/bundle-html.png)
@@ -74,7 +82,7 @@ In html file, unpkg of [swagger-ui](https://github.com/swagger-api/swagger-ui) i
 
 ## List
 
-List up APIs from specification file/directory regardless of file extension (json|yaml|yml).
+List up API paths from a file/directory regardless of the file extension (json|yaml|yml).
 
 ```bash
 $ openapi-cli-tool list [spec-path]
@@ -95,7 +103,7 @@ POST      /users     ./tests/resources/spec/folder1/sample.json
 
 ## Resolve
 
-Display an API specification which is resolved multi-file API specification via $ref pointers.  
+Display an API specification which is resolved from  a multi-file API specification via $ref pointers.  
 
 ```
 Usage: openapi-cli-tool resolve [OPTIONS] METHOD PATH FILE_PATH
@@ -116,7 +124,7 @@ $ openapi-cli-tool resolve post /cats ./tests/resources/spec
 ## Scaffold
 
 Interactively input information of your API.  
-A simple OpenAPI Specification is generated on your prompt.
+A simple OpenAPI Specification is generated from your prompt.
 
 ```bash
 $ openapi-cli-tool scaffold
