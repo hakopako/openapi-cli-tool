@@ -1,4 +1,4 @@
-import os
+import subprocess
 import json
 import unittest
 from src.commands.bundle import run_bundle
@@ -14,9 +14,10 @@ def read_file(file_path):
 class TestBundle(unittest.TestCase):
 
     def _data_provider(self):
+        spec = subprocess.check_output('find ./tests/resources/spec/folder1', shell=True).decode("utf-8").split("\n")
         return {
             'spec path not found without header file': {
-                'input': ['./not-exist-spec-path', None],
+                'input': [['./not-exist-spec-path'], None],
                 'expected': {}
             },
             # 'spec path not found with header file': {
@@ -24,11 +25,11 @@ class TestBundle(unittest.TestCase):
             #     'expected': json.loads(read_file('./tests/resources/spec/template-header.json'))
             # },
             'spec path without header file': {
-                'input': ['./tests/resources/spec/folder1', None],
+                'input': [spec, None],
                 'expected': json.loads(read_file('./tests/resources/expected-bundle-auto-header.json'))
             },
             'spec path with header file': {
-                'input': ['./tests/resources/spec/folder1', './tests/resources/spec/template-header.json'],
+                'input': [spec, './tests/resources/spec/template-header.json'],
                 'expected': json.loads(read_file('./tests/resources/expected-bundle-with-header.json'))
             },
         }

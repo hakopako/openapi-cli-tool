@@ -6,7 +6,7 @@ from pkg_resources import resource_filename
 
 
 def export_json(export_data):
-    result = json.dumps(export_data, indent=2, ensure_ascii=False)
+    result = json.dumps(export_data, indent=2)
     print(result)
 
 
@@ -20,7 +20,7 @@ def export_table(export_data, headers):
 
 
 def export_html(export_data):
-    result = json.dumps(export_data, ensure_ascii=False)
+    result = json.dumps(export_data)
     template = load_file(resource_filename('src.resources', 'template.html'))
     html = template.replace('###TITLE###', export_data['info']['title']).replace('###SPEC###', result)
     print(html)

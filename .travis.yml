@@ -11,8 +11,8 @@ install:
 script:
 - python -m unittest discover -s tests -p "test_*.py"
 - python setup.py install
-- openapi-cli-tool list ./tests/resources/spec
-- openapi-cli-tool bundle -t html ./tests/resources/spec/folder1
+- openapi-cli-tool list `find ./tests/resources/spec`
+- openapi-cli-tool bundle -t html `find ./tests/resources/spec/folder1`
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel

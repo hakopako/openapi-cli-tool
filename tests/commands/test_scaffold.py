@@ -72,10 +72,13 @@ class TestScaffold(unittest.TestCase):
 
     def test_scaffold(self):
         original_sysin = sys.stdin
+        oritinal_sysout = sys.stdout
         for key, value in self._data_provider().items():
             sys.stdin = StringIO(value['input'])
+            sys.stdout = StringIO()
             actual = run_scaffold()
             expected_str = read_file(value['expected'])
             expected = json.loads(expected_str)
             self.assertEqual(actual, expected, key)
         sys.stdin = original_sysin
+        sys.stdout = oritinal_sysout

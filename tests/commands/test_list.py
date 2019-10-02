@@ -1,16 +1,18 @@
 import unittest
+import subprocess
 from src.commands.list import get_list
 
 class TestList(unittest.TestCase):
 
     def _data_provider(self):
+        self.spec = subprocess.check_output('find ./tests/resources/spec', shell=True).decode("utf-8").split("\n")
         return {
             'spec not found': {
-                'input': './not-exist-spec-path',
+                'input': ['./not-exist-spec-path'],
                 'expected': []
             },
             'input dir path': {
-                'input': './tests/resources/spec',
+                'input': self.spec,
                 'expected': [
                     ['PUT', '/avatar', './tests/resources/spec/sample.yml'],
                     ['POST', '/cats', './tests/resources/spec/ref_sample.yml'],
@@ -25,7 +27,7 @@ class TestList(unittest.TestCase):
                 ]
             },
             'input file path': {
-                'input': './tests/resources/spec/sample.yml',
+                'input': ['./tests/resources/spec/sample.yml'],
                 'expected': [
                     ['PUT', '/avatar', './tests/resources/spec/sample.yml'],
                     ['POST', '/pets', './tests/resources/spec/sample.yml']
