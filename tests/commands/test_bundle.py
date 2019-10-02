@@ -14,7 +14,7 @@ def read_file(file_path):
 class TestBundle(unittest.TestCase):
 
     def _data_provider(self):
-        spec = subprocess.check_output('find ./tests/resources/spec/folder1', shell=True).split("\n")
+        spec = subprocess.check_output('find ./tests/resources/spec/folder1', shell=True).decode("utf-8").split("\n")
         return {
             'spec path not found without header file': {
                 'input': [['./not-exist-spec-path'], None],

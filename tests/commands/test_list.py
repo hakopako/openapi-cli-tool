@@ -5,7 +5,7 @@ from src.commands.list import get_list
 class TestList(unittest.TestCase):
 
     def _data_provider(self):
-        self.spec = subprocess.check_output('find ./tests/resources/spec', shell=True).split("\n")
+        self.spec = subprocess.check_output('find ./tests/resources/spec', shell=True).decode("utf-8").split("\n")
         return {
             'spec not found': {
                 'input': ['./not-exist-spec-path'],
