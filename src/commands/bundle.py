@@ -1,10 +1,11 @@
 from src.commands.list import get_list
 from src.utils.resolver import resolver
 from src.utils.export import export_json, export_yaml, export_html
-from src.utils.file_control import load_dict_from_file
+from src.utils.file_control import FileControl
 
 
 def run_bundle(spec_path, filename=None):
+    file_control = FileControl()
     collection = get_list(spec_path)
     if collection.len() == 0 and filename is None:
         return {}
@@ -13,7 +14,7 @@ def run_bundle(spec_path, filename=None):
     elif filename is not None:
         header_file = filename
     try:
-        data = load_dict_from_file(header_file)
+        data = file_control.load_dict_from_file(header_file)
         if isinstance(data, dict):
             data['paths'] = {}
             data.pop('components', None)
@@ -26,7 +27,7 @@ def run_bundle(spec_path, filename=None):
     for route in collection.get():
         if route.url not in data['paths']:
             data['paths'][route.url] = {}
-        resolved_spec = resolver(route.file, route.spec)
+        resolved_spec = resolver(route.file, route.spec, file_control)
         data['paths'][route.url].update({route.method.lower(): resolved_spec})
 
     return data
