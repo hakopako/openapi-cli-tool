@@ -30,6 +30,7 @@ Manually:
 Clone the repository and execute the Python installation command on your machine.  
 
 ```bash
+$ pip -r requirements.txt install
 $ python setup.py install
 ```
 
@@ -57,7 +58,7 @@ Bundle multi-file specifications into one, regardless of file extension (json|ya
 
 ```
 $ openapi-cli-tool bundle --help
-Usage: openapi-cli-tool bundle [OPTIONS] FILE_PATH
+Usage: openapi-cli-tool bundle [OPTIONS] FILE_PATHS
 
   Bundle multiple files into one.
 
@@ -71,7 +72,7 @@ Options:
 
 example:
 ```
-$ openapi-cli-tool bundle -t html FILE_PATH > ./specification.html
+$ openapi-cli-tool bundle -t html file1.json file2.yaml` > ./specification.html
 ```
 
 In the html file, an unpkg version of [swagger-ui](https://github.com/swagger-api/swagger-ui) is embedded. Rendered screenshot below:  
@@ -85,7 +86,7 @@ In the html file, an unpkg version of [swagger-ui](https://github.com/swagger-ap
 List up API paths from a file/directory regardless of the file extension (json|yaml|yml).
 
 ```bash
-$ openapi-cli-tool list [spec-path]
+$ openapi-cli-tool list `find ./spec`
 
 Method    Path       File
 --------  ---------  ------------------------------------------
@@ -106,7 +107,7 @@ POST      /users     ./tests/resources/spec/folder1/sample.json
 Display an API specification which is resolved from  a multi-file API specification via $ref pointers.  
 
 ```
-Usage: openapi-cli-tool resolve [OPTIONS] METHOD PATH FILE_PATH
+Usage: openapi-cli-tool resolve [OPTIONS] METHOD PATH FILE_PATHS
 
   Display `$ref` resolved API specification.
 
@@ -117,7 +118,7 @@ Options:
 
 example:
 ```bash
-$ openapi-cli-tool resolve post /cats ./tests/resources/spec
+$ openapi-cli-tool resolve post /cats `find ./tests/resources/spec`
 ```
 
 

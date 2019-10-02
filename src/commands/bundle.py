@@ -4,9 +4,9 @@ from src.utils.export import export_json, export_yaml, export_html
 from src.utils.file_control import FileControl
 
 
-def run_bundle(spec_path, filename=None):
+def run_bundle(spec_paths, filename=None):
     file_control = FileControl()
-    collection = get_list(spec_path)
+    collection = get_list(spec_paths)
     if collection.len() == 0 and filename is None:
         return {}
     elif collection.len() > 0 and filename is None:
@@ -33,8 +33,8 @@ def run_bundle(spec_path, filename=None):
     return data
 
 
-def bundle(spec_path, type, filename=None):
-    specs = run_bundle(spec_path, filename)
+def bundle(spec_paths, type, filename=None):
+    specs = run_bundle(spec_paths, filename)
     if type == 'json':
         export_json(specs)
     elif type == 'yaml':

@@ -6,13 +6,10 @@ from src.models.route import Route
 from src.models.route_collection import RouteCollection
 
 
-def get_list(path):
+def get_list(paths):
     file_control = FileControl()
     collection = RouteCollection()
-    if os.path.isfile(path):
-        files = [path]
-    else:
-        files = [y for x in os.walk(path) for y in glob(os.path.join(x[0], '*.yml')) + glob(os.path.join(x[0], '*.yaml')) + glob(os.path.join(x[0], '*.json'))]
+    files = [p for p in paths if os.path.isfile(p)]
     for file in files:
         try:
             spec = file_control.load_dict_from_file(file)
@@ -28,6 +25,6 @@ def get_list(path):
     return collection
 
 
-def list(path):
-    routes = get_list(path)
+def list(paths):
+    routes = get_list(paths)
     export_table(routes.to_list(), ['Method', 'Path', 'File'])

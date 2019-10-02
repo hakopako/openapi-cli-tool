@@ -1,4 +1,5 @@
 import os
+import subprocess
 import json
 import unittest
 from src.commands.resolve import run_resolve
@@ -14,17 +15,18 @@ def read_file(file_path):
 class TestResolve(unittest.TestCase):
 
     def _data_provider(self):
+        self.spec = subprocess.check_output('find ./tests/resources/spec', shell=True).split("\n")
         return {
             'spec file not found': {
-                'input': ['get', '/cats', './not-exist-spec-path'],
+                'input': ['get', '/cats', ['./not-exist-spec-path']],
                 'expected': []
             },
             'spec path not found': {
-                'input': ['get', '/dogs', './tests/resources/spec'],
+                'input': ['get', '/dogs', self.spec],
                 'expected': []
             },
             'with ref': {
-                'input': ['post', '/cats', './tests/resources/spec'],
+                'input': ['post', '/cats', self.spec],
                 'expected': './tests/resources/expected-resolve-result.json'
             }
         }

@@ -25,15 +25,15 @@ def main():
 
 
 @main.command('list', help='List up API paths in a file or directory.')
-@click.argument('file_path', type=click.Path(exists=True))
-def cmd_list(file_path):
-    list(file_path)
+@click.argument('file_paths', nargs=-1, type=click.Path(exists=True))
+def cmd_list(file_paths):
+    list(file_paths)
 
 
 @main.command('resolve', help='Display `$ref` resolved API specification.')
 @click.argument('method')
 @click.argument('path')
-@click.argument('file_path')
+@click.argument('file_paths', nargs=-1, type=click.Path(exists=True))
 @click.option('-t', '--type', 'type', default='json', show_default=True, callback=validate_resolve_type, help='Export data type. {json|yaml}')
 def cmd_resolve(method, path, file_path, type):
     resolve(method, path, file_path, type)
@@ -42,9 +42,9 @@ def cmd_resolve(method, path, file_path, type):
 @main.command('bundle', help='Bundle multiple files into one.')
 @click.option('-f', '--file', 'file', help='Load common objects such as info and servers from a specific file. Default is a file which is the top of list command result.')
 @click.option('-t', '--type', 'type', default='json', show_default=True, callback=validate_bundle_type, help='Export data type. {json|yaml|html}')
-@click.argument('file_path')
-def cmd_bundle(file, type, file_path):
-    bundle(file_path, type, file)
+@click.argument('file_paths', nargs=-1, type=click.Path(exists=True))
+def cmd_bundle(file, type, file_paths):
+    bundle(file_paths, type, file)
 
 
 @main.command('scaffold', help='Interactively create a simple OpenAPI Specification.')
