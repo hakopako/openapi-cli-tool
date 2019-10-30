@@ -35,8 +35,8 @@ def cmd_list(file_paths):
 @click.argument('path')
 @click.argument('file_paths', nargs=-1, type=click.Path(exists=True))
 @click.option('-t', '--type', 'type', default='json', show_default=True, callback=validate_resolve_type, help='Export data type. {json|yaml}')
-def cmd_resolve(method, path, file_path, type):
-    resolve(method, path, file_path, type)
+def cmd_resolve(method, path, file_paths, type):
+    resolve(method, path, file_paths, type)
 
 
 @main.command('bundle', help='Bundle multiple files into one.')
