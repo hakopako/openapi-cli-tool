@@ -28,6 +28,10 @@ class TestResolve(unittest.TestCase):
             'with ref': {
                 'input': ['post', '/cats', self.spec],
                 'expected': './tests/resources/expected-resolve-result.json'
+            },
+            'with path ref': {
+                'input': ['post', '/dogs-with-ref-path', self.spec],
+                'expected': './tests/resources/expected-dogs-with-ref-path.json'
             }
         }
 

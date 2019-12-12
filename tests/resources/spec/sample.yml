@@ -60,9 +60,9 @@ components:
     Pet:
       type: object
       properties:
-        name:          # <!--- form field name
+        name:
           type: string
-        fav_number:    # <!--- form field name
+        fav_number:
           type: integer
       required:
         - name
@@ -71,9 +71,9 @@ components:
     PetForm:
       type: object
       properties:
-        name:          # <!--- form field name
+        name:
           type: string
-        fav_number:    # <!--- form field name
+        fav_number:
           type: string
       required:
         - name

@@ -16,6 +16,8 @@ class TestList(unittest.TestCase):
                 'expected': [
                     ['PUT', '/avatar', './tests/resources/spec/sample.yml'],
                     ['POST', '/cats', './tests/resources/spec/ref_sample.yml'],
+                    ['GET', '/dogs-with-ref-path', './tests/resources/spec/ref_sample.yml'],
+                    ['POST', '/dogs-with-ref-path', './tests/resources/spec/ref_sample.yml'],
                     ['GET', '/follwers', './tests/resources/spec/folder1/sample2.yaml'],
                     ['POST', '/follwers', './tests/resources/spec/folder1/sample2.yaml'],
                     ['PUT', '/follwers', './tests/resources/spec/folder1/sample2.yaml'],

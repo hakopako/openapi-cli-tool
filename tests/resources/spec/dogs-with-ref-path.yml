@@ -1,0 +1,17 @@
+post:
+  summary: Add a new dog
+  requestBody:
+    description: Optional description in *Markdown*
+    required: true
+    content:
+      application/json:
+        schema:
+          type: string
+  responses:
+    '201':
+      description: Created
+get:
+  summary: get dogs
+  responses:
+    '200':
+      description: Success

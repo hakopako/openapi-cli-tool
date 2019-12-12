@@ -13,6 +13,10 @@ class RouteCollection:
         return result
 
 
+    def add(self, route):
+        self.collection.append(route)
+
+
     def extend(self, routes):
         self.collection.extend(routes)
 
