@@ -32,6 +32,8 @@ paths:
       responses:
         '201':
           description: Created
+  /dogs-with-ref-path: 
+    $ref: './dogs-with-ref-path.yml'
 
 components:
   schemas:

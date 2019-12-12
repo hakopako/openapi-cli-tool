@@ -14,7 +14,7 @@ def _find_reference(link, base_file_path, file_control):
             spec = spec[key]
         return spec, spec_file
     except Exception as e:
-        print('Failed to load referance. file=' + base_file_path + ' $ref=' + link)
+        print('Failed to load reference. file=' + base_file_path + ' $ref=' + link)
         return '', spec_file
 
 
@@ -30,3 +30,14 @@ def resolver(file_path, data, file_control):
             new_value = resolver(file_path, value, file_control)
             data[key] = new_value
     return data
+
+
+def resolve_once(file_path, data, file_control):
+    if not isinstance(data, dict):
+        return data
+
+    if '$ref' in data:
+        new_value, _ = _find_reference(data['$ref'], file_path, file_control)
+        return new_value
+    return data
+
