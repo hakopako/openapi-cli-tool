@@ -7,3 +7,6 @@ class Route:
         self.url = url
         self.file = file
         self.spec = spec
+
+    def __repr__(self):
+        return 'method='+self.method+' url='+self.url+' file='+self.file+' spec='+str(self.spec) 

@@ -1,6 +1,7 @@
 import os
 import json
 import yaml
+from copy import deepcopy
 
 
 def load_file(file_path):
@@ -20,7 +21,7 @@ class FileControl:
 
     def load_dict_from_file(self, file_path):
         if file_path in self.spec_dict:
-            return self.spec_dict[file_path]
+            return deepcopy(self.spec_dict[file_path])
         try:
             r = open(file_path, 'r')
             content = r.read()
@@ -28,7 +29,7 @@ class FileControl:
             _, file_extension = os.path.splitext(file_path)
             spec = ""
             if not os.path.exists(file_path):
-                raise Exception('Faild not found.')
+                raise Exception('File not found.')
             if file_extension == '.json':
                 spec = json.loads(content)
             elif file_extension in ['.yaml', '.yml']:

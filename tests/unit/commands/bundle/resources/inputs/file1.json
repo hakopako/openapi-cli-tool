@@ -1,0 +1,61 @@
+{
+  "info": {
+    "version": "v1.0",
+    "license": {
+      "name": "Apache 2.0"
+    },
+    "title": ""
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "succeed to register a new user"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "failed to register a new user"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "succeed to return all users info"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "failed to return all users infon"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://example.com"
+    }
+  ],
+  "openapi": "3.0.0"
+}
