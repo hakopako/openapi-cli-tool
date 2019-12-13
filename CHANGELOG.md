@@ -1,3 +1,9 @@
+# 0.3.0 (December 13, 2019)
+
+- Support $ref individual paths (#18)
+- Bug fix (#18)
+
+
 # 0.2.1 (October 30, 2019)
 
 - Fix TypeError for resovler command #14

@@ -5,7 +5,7 @@ setup(
     description="openapi cli tool",
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    version='0.2.1',
+    version='0.3.0',
     author="Ayaka Shimada",
     author_email='aya.a.shimada@gmail.com',
     url='https://github.com/hakopako/openapi-cli-tool',
