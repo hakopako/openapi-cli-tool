@@ -1,5 +1,3 @@
-
-
 class RouteCollection:
 
     def __init__(self):
@@ -15,10 +13,6 @@ class RouteCollection:
 
     def add(self, route):
         self.collection.append(route)
-
-
-    def extend(self, routes):
-        self.collection.extend(routes)
 
 
     def get(self):

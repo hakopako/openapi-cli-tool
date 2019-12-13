@@ -1,4 +1,9 @@
 import os
+from src.utils.file_control import FileControl
+
+
+def _resolve_escape_character(value):
+    return value.replace("~0", "~").replace("~1", "/")
 
 
 def _find_reference(link, base_file_path, file_control):
@@ -11,14 +16,14 @@ def _find_reference(link, base_file_path, file_control):
     try:
         spec = file_control.load_dict_from_file(spec_file)
         for key in items:
-            spec = spec[key]
+            spec = spec[_resolve_escape_character(key)]
         return spec, spec_file
     except Exception as e:
-        print('Failed to load reference. file=' + base_file_path + ' $ref=' + link)
+        print('Failed to load reference. file=' + base_file_path + ' $ref=' + link + ' (' + str(e) + ')')
         return '', spec_file
 
 
-def resolver(file_path, data, file_control):
+def resolver(file_path, data, file_control = FileControl()):
     if not isinstance(data, dict):
         return data
 
@@ -32,7 +37,7 @@ def resolver(file_path, data, file_control):
     return data
 
 
-def resolve_once(file_path, data, file_control):
+def resolve_once(file_path, data, file_control = FileControl()):
     if not isinstance(data, dict):
         return data
 

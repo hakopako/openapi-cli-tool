@@ -1,0 +1,22 @@
+paths:
+  /pets:
+    post:
+      summary: Upload an avatar
+      requestBody:
+        content:
+          image/*:
+            schema:
+              type: string
+              format: binary
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                filename:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        '201':
+          description: Updated

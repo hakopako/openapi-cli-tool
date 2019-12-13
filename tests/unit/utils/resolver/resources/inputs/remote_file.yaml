@@ -1,0 +1,6 @@
+application/json:
+  schema:
+    $ref: './remote_file_referred.yaml'
+text/plain:
+  schema:
+    type: string

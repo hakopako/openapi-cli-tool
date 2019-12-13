@@ -1,0 +1,6 @@
+application/json:
+  schema:
+    $ref: './remote_components_referred.yaml#/components/schemas/Pet'
+text/plain:
+  schema:
+    type: string

@@ -1,0 +1,53 @@
+
+application/json:
+  schema:
+    type: object
+    properties:
+      name:
+        type: string
+      fav_number:
+        type: integer
+    required:
+      - name
+      - fav_number
+    additionalProperties: false
+application/x-www-form-urlencoded:
+  schema:
+    type: object
+    properties:
+      name:
+        type: string
+      fav_number:
+        type: string
+    required:
+      - name
+      - fav_number
+    additionalProperties: false
+text/plain:
+  schema:
+    type: string
+
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        name:
+          type: string
+        fav_number:
+          type: integer
+      required:
+        - name
+        - fav_number
+      additionalProperties: false
+    PetForm:
+      type: object
+      properties:
+        name:
+          type: string
+        fav_number:
+          type: string
+      required:
+        - name
+        - fav_number
+      additionalProperties: false

@@ -1,6 +1,7 @@
 
 test:
-	python -m unittest discover -v -s tests
+	python -m unittest discover -v -s tests/unit -p "test_*.py"
+
 
 build:
 	python setup.py install

@@ -1,0 +1,13 @@
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        name:
+          type: string
+        fav_number:
+          type: integer
+      required:
+        - name
+        - fav_number
+      additionalProperties: false

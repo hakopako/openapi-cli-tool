@@ -14,12 +14,13 @@ def read_file(file_path):
     r = open(file_path, 'r')
     content = r.read()
     r.close()
-    return content
+    return json.loads(content)
 
 
 class TestScaffold(unittest.TestCase):
 
     def _data_provider(self):
+        current = os.path.dirname(os.path.abspath(__file__))
         return {
             'default input': {
                 'input':
@@ -35,7 +36,7 @@ class TestScaffold(unittest.TestCase):
                     "application/json\n" +  # Please enter response content-type for get /users [application/json]:
                     "\n" +  # Add more response for get /users ? Y/n [n]:
                     "\n",  # Add more request method for /users ? Y/n [n]:
-                'expected': 'tests/resources/expected-default-output.json'
+                'expected': os.path.join(current, 'resources/expected-default-output.json')
             },
             'multiple response input': {
                 'input':
@@ -66,7 +67,7 @@ class TestScaffold(unittest.TestCase):
                     "application/json\n" +  # Please enter response content-type for post /users [application/json]:
                     "\n" +  # Add more response for post /users ? Y/n [n]:
                     "\n",  # Add more request method for /users ? Y/n [n]:
-                'expected': 'tests/resources/expected-multiple-response-output.json'
+                'expected': os.path.join(current, 'resources/expected-multiple-response-output.json')
             }
         }
 
@@ -77,8 +78,7 @@ class TestScaffold(unittest.TestCase):
             sys.stdin = StringIO(value['input'])
             sys.stdout = StringIO()
             actual = run_scaffold()
-            expected_str = read_file(value['expected'])
-            expected = json.loads(expected_str)
+            expected = read_file(value['expected'])
             self.assertEqual(actual, expected, key)
         sys.stdin = original_sysin
         sys.stdout = oritinal_sysout

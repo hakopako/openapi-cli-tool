@@ -1,0 +1,15 @@
+application/json:
+  schema:
+    type: object
+    properties:
+      name:
+        type: string
+      fav_number:
+        type: integer
+    required:
+      - name
+      - fav_number
+    additionalProperties: false
+text/plain:
+  schema:
+    type: string

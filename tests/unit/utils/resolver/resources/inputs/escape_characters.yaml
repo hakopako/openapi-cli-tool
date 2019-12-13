@@ -1,0 +1,20 @@
+application/json:
+  schema:
+    $ref: '#/components/schemas/~1blogs~1{blog_id}~1new~0posts'
+text/plain:
+  schema:
+    type: string
+
+components:
+  schemas:
+    /blogs/{blog_id}/new~posts:
+      type: object
+      properties:
+        name:
+          type: string
+        fav_number:
+          type: integer
+      required:
+        - name
+        - fav_number
+      additionalProperties: false
